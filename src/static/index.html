@@ -8,8 +8,13 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-content">
+        <h1>Mergington High School</h1>
+        <h2>Extracurricular Activities</h2>
+      </div>
+      <button id="auth-button" class="auth-button" type="button" aria-label="Teacher sign in">
+        <span aria-hidden="true">👤</span> Teacher sign in
+      </button>
     </header>
 
     <main>
@@ -21,7 +26,7 @@
         </div>
       </section>
 
-      <section id="signup-container">
+      <section id="signup-container" hidden>
         <h3>Sign Up for an Activity</h3>
         <form id="signup-form">
           <div class="form-group">
@@ -37,9 +42,38 @@
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <div id="message" class="hidden"></div>
+        <div id="message" class="message hidden" role="status" aria-live="polite"></div>
       </section>
+
+      <p id="teacher-required" class="teacher-required">
+        Sign in as a teacher to register or unregister students.
+      </p>
     </main>
+
+    <dialog id="login-dialog" aria-labelledby="login-title">
+      <form id="login-form">
+        <h2 id="login-title">Teacher sign in</h2>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+        </div>
+        <p id="login-error" class="error" role="alert" aria-live="assertive"></p>
+        <div class="dialog-actions">
+          <button type="submit">Sign in</button>
+          <button id="cancel-login" class="secondary-button" type="button">Cancel</button>
+        </div>
+      </form>
+    </dialog>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>

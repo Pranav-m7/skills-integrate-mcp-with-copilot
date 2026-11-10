@@ -16,7 +16,7 @@ body {
 }
 
 header {
-  text-align: center;
+  position: relative;
   padding: 20px 0;
   margin-bottom: 30px;
   background-color: #1a237e;
@@ -24,8 +24,18 @@ header {
   border-radius: 5px;
 }
 
+.header-content {
+  text-align: center;
+}
+
 header h1 {
   margin-bottom: 10px;
+}
+
+.auth-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 
 main {
@@ -192,9 +202,66 @@ button:hover {
   display: none;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+.teacher-required {
+  width: 100%;
+  max-width: 500px;
+  padding: 16px;
+  color: #333;
+  text-align: center;
+}
+
+dialog {
+  width: min(90vw, 420px);
+  margin: auto;
+  padding: 24px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+dialog h2 {
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.secondary-button {
+  background-color: #666;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #ffca28;
+  outline-offset: 2px;
+}
+
 footer {
   text-align: center;
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 72px 16px 20px;
+  }
+
+  .auth-button {
+    top: 12px;
+    right: 12px;
+  }
 }
